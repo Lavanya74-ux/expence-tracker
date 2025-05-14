@@ -1,0 +1,222 @@
+/* ========================================================================
+   ExpensePro Global Styles
+   ======================================================================== */
+
+/* 1. CSS Reset / Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* 2. Theme Variables */
+:root {
+  /* Light theme colors */
+  --light-bg: #f8f9fa;
+  --light-text: #212529;
+  --light-primary: #0d6efd;
+  --light-secondary: #6c757d;
+  --light-success: #198754;
+  --light-info: #0dcaf0;
+  --light-warning: #ffc107;
+  --light-danger: #dc3545;
+  --light-card-bg: #ffffff;
+
+  /* Dark theme colors */
+  --dark-bg: #121214;
+  --dark-text: #e1e1e6;
+  --dark-primary: #375a7f;
+  --dark-secondary: #44475a;
+  --dark-success: #28a745;
+  --dark-info: #17a2b8;
+  --dark-warning: #ffc107;
+  --dark-danger: #dc3545;
+  --dark-card-bg: #1e1e24;
+
+  /* Set defaults to dark */
+  --bg: var(--dark-bg);
+  --text: var(--dark-text);
+  --primary: var(--dark-primary);
+  --secondary: var(--dark-secondary);
+  --success: var(--dark-success);
+  --info: var(--dark-info);
+  --warning: var(--dark-warning);
+  --danger: var(--dark-danger);
+  --card-bg: var(--dark-card-bg);
+
+  /* Spacing & sizing */
+  --radius: 0.5rem;
+  --transition: 0.3s ease;
+}
+
+body.light {
+  --bg: var(--light-bg);
+  --text: var(--light-text);
+  --primary: var(--light-primary);
+  --secondary: var(--light-secondary);
+  --success: var(--light-success);
+  --info: var(--light-info);
+  --warning: var(--light-warning);
+  --danger: var(--light-danger);
+  --card-bg: var(--light-card-bg);
+}
+
+/* 3. Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 4. Navbar */
+.navbar {
+  background-color: var(--primary) !important;
+}
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #fff !important;
+  transition: color var(--transition);
+}
+.navbar .nav-link:hover {
+  color: var(--info) !important;
+}
+
+/* 5. Cards & Layout */
+.card {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: var(--radius);
+  transition: transform var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* 6. Forms */
+input,
+select,
+textarea,
+button {
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+
+.form-control,
+.form-select,
+textarea {
+  background-color: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--secondary);
+  border-radius: var(--radius);
+}
+
+button.btn {
+  border-radius: var(--radius);
+}
+
+.btn-success {
+  background-color: var(--success);
+  border-color: var(--success);
+}
+.btn-success:hover {
+  background-color: darken(var(--success), 5%);
+}
+
+/* 7. Tables */
+.table {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.table th,
+.table td {
+  vertical-align: middle;
+}
+.table thead {
+  background-color: var(--primary);
+}
+.table thead th {
+  color: #fff;
+}
+
+/* 8. Toasts */
+#toastContainer .toast {
+  border-radius: var(--radius);
+  opacity: 0.95;
+  margin-bottom: 0.5rem;
+}
+#toastContainer .toast-success {
+  background-color: var(--success) !important;
+}
+#toastContainer .toast-danger {
+  background-color: var(--danger) !important;
+}
+#toastContainer .toast-warning {
+  background-color: var(--warning) !important;
+}
+#toastContainer .toast-info {
+  background-color: var(--info) !important;
+}
+
+/* 9. Responsive tweaks */
+@media (max-width: 768px) {
+  .navbar .navbar-nav {
+    text-align: center;
+  }
+  .container {
+    padding: 0 0.5rem;
+  }
+}
+
+/* 10. Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
